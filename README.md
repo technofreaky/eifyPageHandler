@@ -59,12 +59,3 @@ Get Page Name for a Handler , EX:
 	 */
 	$page->requestHander()
 ```
-
-Download
-========
-You can download this project in either [zip][1] or [tar][2] formats
- 
-
-License
-=======
- 
