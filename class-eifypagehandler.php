@@ -3,7 +3,7 @@
 * The eifyPageHandler is created by 
 * into any php based system
 *
-* @version 0.0.1
+* @version 0.1
 * @copyright 2014 - 2014
 * @author Varun Sridharan (email: varunsridharan23@gmail.com)
 * @link http://varunsridharan.in
