@@ -75,6 +75,7 @@ class eifyPageHander {
 		$url = $_SERVER['REQUEST_URI'];
 		$url =  explode(EIFY_USE_DIR."/",$url);
 		$url = explode("?",$url[1]);
+		$url = str_replace("/","",$url);
 		return $url[0]; 
 	}
 	
