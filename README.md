@@ -7,6 +7,17 @@ Simple php page handler script
 
 How to Use?
 =====
+First add the below htaccess in your application
+```htaccess
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /emailify/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /emailify/index.php [L]
+</IfModule>
+```
 
 Simple, Include the class file in your application bootstrap (setup/load/configuration or whatever you call it) Ex:
 
