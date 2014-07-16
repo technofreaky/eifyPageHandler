@@ -1,10 +1,10 @@
 <?php
 /**
-* The eifyPageHandler is created by 
-* into any php based system
+* The eifyPageHandler is created by inspring wordpress and elgg
+* this class can be used in any php apps / scripts
 *
-* @version 0.1
-* @copyright 2014 - 2014
+* @version 0.2
+* @copyright 2014
 * @author Varun Sridharan (email: varunsridharan23@gmail.com)
 * @link http://varunsridharan.in
 *
@@ -21,21 +21,22 @@
 */
 class eifyPageHander {
 	
-	protected $handler;
-	
-	function __construct() {
-		$this->handler = array();
-	}
-	
+	protected $handler = array();
+	public $currentHandler;
+ 
 	/**
 	 * Register's A Page hander
 	 * @param string $handler handler hane
 	 * @param string $file file path for the handler
 	 * @return boolean
 	 */
-	public function registerHandler($handler,$file) {
- 		if(!array_key_exists($handler, $this->handler)){
- 			$this->handler[$handler] = $file;
+	public function registerHandler($Rhandler,$file,$title,$login = true) {
+		$handlekey = @$this->handler[$Rhandler];
+ 		if(!array_key_exists($handlekey, $this->handler)){
+ 			$this->handler[$Rhandler]['file'] = $file;
+ 			$this->handler[$Rhandler]['login']= $login;
+ 			$this->handler[$Rhandler]['title']= $title;
+ 			$this->handler[$Rhandler]['handler'] = $Rhandler;
  			return true;
  		} else {return false;}
 			
@@ -61,6 +62,7 @@ class eifyPageHander {
 	 */
 	public function getHandler($handler) {
 		if(array_key_exists($handler, $this->handler)) {
+			$this->currentHandler = $this->handler[$handler];
 			return $this->handler[$handler];
 		} else {
 			return false;
@@ -76,7 +78,51 @@ class eifyPageHander {
 		$url =  explode(EIFY_USE_DIR."/",$url);
 		$url = explode("?",$url[1]);
 		$url = str_replace("/","",$url);
-		return $url[0]; 
+		if(!empty($url[0])) {
+			return $url[0];
+		} else {
+			return false;
+		}
+		 
 	}
 	
+	
+	/**
+	 * Retrives Current Handler datas 
+	 * @param string $request [file,title,handler]
+	 * @return string | boolean
+	 */
+	private function current_handler($request) {
+		if(isset($this->currentHandler[$request])) {
+			return $this->currentHandler[$request];
+		} else {
+			return false;
+		}
+	}
+	
+
+	/**
+	 * Retrives Current Handlers Title
+	 * @return string | boolean
+	 */
+	public function currentTitle() {
+		return $this->current_handler('title');
+	}
+	
+	/**
+	 * Retrives Current Handlers file
+	 * @return string | boolean
+	 */
+	public function currentPage() {
+		return $this->current_handler('file');
+	}
+	
+	/**
+	 * Retrives Current Handlers handler Name
+	 * @return string | boolean
+	 */
+	public function currentHandler() {
+		return $this->current_handler('handler');
+	}
+
 }
