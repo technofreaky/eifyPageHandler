@@ -28,6 +28,8 @@ class eifyPageHander {
 	 * Register's A Page hander
 	 * @param string $handler handler hane
 	 * @param string $file file path for the handler
+	 * @param string title for the file given
+	 * @param boolean login is required for current file
 	 * @return boolean
 	 */
 	public function registerHandler($Rhandler,$file,$title,$login = true) {
