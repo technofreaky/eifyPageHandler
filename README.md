@@ -26,19 +26,21 @@ include_once('class-eifypagehandler.php');
 $page = new eifyPageHander;
 ```
 
-To Register A New Hander , EX:
+### To Register A New Hander
 
 ```PHP
 	/**
 	 * Register's A Page hander
 	 * @param string $handler handler hane
 	 * @param string $file file path for the handler
+	 * @param string title for the file given
+	 * @param boolean login is required for current file
 	 * @return boolean
 	 */
-	$page->registerHandler('listuer','list.php');
+	$page->registerHandler('listuer','list.php','List Users',true);
 ```
 
-To Remove A Existing Handler , EX:
+### To Remove A Existing Handler
 
 ```PHP
 	/**
@@ -49,7 +51,7 @@ To Remove A Existing Handler , EX:
 	$page->deregisterHandler('user');
 ```
 
-Get Page Name for a Handler , EX:
+### Get Page Name for a Handler 
 
 ```PHP
 	/**
@@ -61,12 +63,25 @@ Get Page Name for a Handler , EX:
 ```
 
 
-Get Page Name for a Handler , EX:
+### Get Page Name for a Handler:
 
 ```PHP
-/**
+	/**
 	 * Returns Current Requested Page
 	 * @return Handler Name [string]
 	 */
 	$page->requestHander()
+```
+
+### Get Current Page Title 
+```php
+echo $page->currentTitle() ;
+```
+### Get Current File
+```php
+echo $page->currentPage();
+```
+### Get Current Handler Name
+```php
+echo $page->currentHandler();
 ```
