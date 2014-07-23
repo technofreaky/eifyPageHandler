@@ -19,7 +19,7 @@
 *
 * @package eifyPageHander
 */
-class eifyPageHander {
+class EifyPageHander {
 	
 	protected $handler = array();
 	public $currentHandler;
@@ -94,7 +94,7 @@ class eifyPageHander {
 	 * @param string $request [file,title,handler]
 	 * @return string | boolean
 	 */
-	private function current_handler($request) {
+	private function getCurrentHandler($request) {
 		if(isset($this->currentHandler[$request])) {
 			return $this->currentHandler[$request];
 		} else {
@@ -108,7 +108,7 @@ class eifyPageHander {
 	 * @return string | boolean
 	 */
 	public function currentTitle() {
-		return $this->current_handler('title');
+		return $this->getCurrentHandler('title');
 	}
 	
 	/**
@@ -116,7 +116,7 @@ class eifyPageHander {
 	 * @return string | boolean
 	 */
 	public function currentPage() {
-		return $this->current_handler('file');
+		return $this->getCurrentHandler('file');
 	}
 	
 	/**
@@ -124,7 +124,7 @@ class eifyPageHander {
 	 * @return string | boolean
 	 */
 	public function currentHandler() {
-		return $this->current_handler('handler');
+		return $this->getCurrentHandler('handler');
 	}
 
 }
