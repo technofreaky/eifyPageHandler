@@ -1,5 +1,6 @@
 eifyPageHandler
 =========
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/eMailify/eifyPageHandler?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Simple php page handler script
  
 
