@@ -1,0 +1,8 @@
+title: Eify Page Handler
+description: Simple php page handler class
+google_analytics: UA-55772181-2
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
